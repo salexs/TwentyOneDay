@@ -1,91 +1,293 @@
-/* http://meyerweb.com/eric/tools/css/reset/
-   v2.0 | 20110126
-   License: none (public domain)
+/********************************************************/
+/* THIS IS A SHARED FILE WITH STYLES FOR ALL COMPONENTS */
+/********************************************************/
+
+/*********************************/
+/* Styles for component 'App.js' */
+/*********************************/
+
+div.App_contentMain div {
+  margin-top: 0;
+}
+
+.App_contentHeader {
+
+}
+
+.App_contentAim {
+
+}
+
+.App_contentHabit {
+
+}
+
+/************************************/
+/* Styles for component 'Header.js' */
+/************************************/
+
+.Header_contentMain {
+  background-color: #FFFFFF;
+  padding: 10px;
+  overflow: hidden;
+  height: 100px;
+}
+
+.Header_welcomeText {
+  text-align: center;
+  display: inline-block;
+}
+
+/*
+                КРАСИВЫЙ ШРИФТ --- НЕ РАБОТАЕТ !!!
+
+Добавь сточку "font-family: 'kursiv';" в ".Header_welcomeText"
+
+И ниже добавь объект
+
+@font-face {
+  font-family: 'kursiv';
+  src: url('fonts/regina_kursiv_italic.ttf');
+}
+
+В итоге будет такая ошибка:
+
+      Module parse failed: /home/.../styles/fonts/name.ttf
+      Unexpected character '' (1:0)
+      You may need an appropriate loader to handle this file type.
+
 */
 
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
+.Header_TwentyOneDays {
+  font-size: 50px;
+  text-transform: uppercase;
 }
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {
+
+.Header_Slogan {
+  font-size: 30px;
+  color: #B4B4B4;
+}
+
+.Header_userProfile {
+  display: none;
+}
+
+.Header_userMainPhoto {
+
+}
+
+.Header_userFullName {
+
+}
+
+.Header_Registration {
+  display: inline-block;
+}
+
+.Header_buttonLogIn {
+  background-color: red;
+  margin: 10px 0;
+  padding: 5px 10px;
+  border-radius: 0;
+  font-size: 15px;
+  border: 0;
+  margin-left: 30px;
+}
+
+/**********************************/
+/* Styles for component 'Aims.js' */
+/**********************************/
+
+.Aims_contentMain {
+  background: #83c8ff;
+  padding: 10px;
+  text-align: center;
+  border-radius: 10px;
+  border: 3px #0066FF solid;
+}
+
+.Aims_statistic {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.Aims_inputTextAim {
+  width: 300px;
+  border-radius: 0;
+  border: 0;
+  padding: 5px 20px;
+  text-align: center;
+}
+
+.Aims_addAim {
+  margin: 10px 0;
+  padding: 5px 10px;
+  background-color: #009900;
+  border-radius: 0;
+  font-size: 15px;
+  border: 0;
+}
+
+.Aims_addAim:hover {
+  background-color: #00ff00;
+  padding: 5px 30px;
+  font-weight:bold;
+  transition-duration: 0.5s;
+}
+
+.Aims_allCreatedAims {
+  padding: 0 !important;
+}
+
+ul.Aims_allCreatedAims li {
+  display: inline-block;
+}
+
+.Aims_newAim {
+  display: inline-block;
+  background-color: #FFE680;
+  margin: 3px;
+  font-size: 20px;
+  border-radius: 0px 0px 10px 10px;
+}
+
+.Aims_newAim:active {
+  background-color: blue;
+}
+
+.Aims_newAim:hover .Aims_aimAction {
   display: block;
 }
-body {
-  line-height: 1;
-}
-ol, ul {
-  list-style: none;
-}
-blockquote, q {
-  quotes: none;
-}
-blockquote:before, blockquote:after,
-q:before, q:after {
-  content: '';
-  content: none;
-}
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
+
+.Aims_aimAction {
+  text-align: right;
+  background-color: #D0D0D0;
+  padding-bottom: 5px;
+  display: none;
 }
 
-/*end reset*/
+.Aims_aimEdit, .Aims_aimDelete {
+  background: #FFFFFF;
+  border: 0;
+  border-radius: 0;
+  font-size: 15px;
+  margin: 0 5px;
+}
 
-h3 {
-  font-size: 22px;
-  margin: 10px 0 0;
+.Aims_aimEdit:hover {
+  background: #FF6600;
+  transition-duration: 0.3s;
 }
-.app {
-  margin: 50px;
-  font: 14px sans-serif;
+
+.Aims_aimDelete:hover {
+  background: #FF0000;
+  transition-duration: 0.3s;
 }
-.ib {
+
+.Aims_aimText {
   display: inline-block;
-}
-.page {
-  width: 80%;
-}
-.user {
-  width: 20%;
-  vertical-align: top;
+  padding: 5px;
+  width: auto;
 }
 
-.btn {
-  border: none;
-  border-radius: 2px;
-  display: inline-block;
-  height: 36px;
-  line-height: 36px;
-  font-size: 16px;
-  outline: 0;
-  padding: 0 2rem;
-  text-transform: uppercase;
-  vertical-align: middle;
-  color: #fff;
-  background-color: #6383a8;
+/************************************/
+/* Styles for component 'Habits.js' */
+/************************************/
+
+.Habits_contentMain {
+  background: #83c8ff;
+  margin: 0 auto;
+  padding: 10px;
+  width: 50%;
   text-align: center;
-  letter-spacing: .5px;
-  transition: .2s ease-out;
-  cursor: pointer;
+  border-radius: 0px 0px 10px 10px;
+  border: 3px #0066FF solid;
+  border-top: 0px;
 }
-.btn:hover {
-  background-color: #6d8cb0
+
+.Habits_statistic {
+  text-align: center;
+  margin: 20px 0;
 }
+
+.Habits_inputTextHabit {
+  width: 300px;
+  border-radius: 0;
+  border: 0;
+  padding: 5px 20px;
+  text-align: center;
+}
+
+.Habits_addHabit {
+  background-color: #009900;
+  margin: 10px 0;
+  padding: 5px 10px;
+  border-radius: 0;
+  font-size: 15px;
+  border: 0;
+}
+
+.Habits_addHabit:hover {
+  background-color: #00ff00;
+  padding: 5px 30px;
+  font-weight: bold;
+  transition-duration: 0.5s;
+}
+
+.Habits_allCreatedHabits {
+  list-style-type: none;
+  padding: 0 !important;
+}
+
+.Habits_newHabit {
+  display: inline-block;
+  background-color: #FFE680;
+  margin-bottom: 10px;
+  font-size: 20px;
+  text-align: left;
+  border-radius: 0px 0px 10px 10px;
+}
+
+.Habits_newHabit {
+  display: block;
+}
+
+.Habits_habitAction {
+  text-align: right;
+  background-color: #D0D0D0;
+  padding: 0px 5px 5px 0px
+}
+
+.Habits_habitEdit, .Habits_habitDelete {
+  background: #FFFFFF;
+  border: 0;
+  border-radius: 0;
+  font-size: 15px;
+  margin-left: 5px;
+}
+
+.Habits_habitEdit:hover {
+  background: #FF6600;
+  transition-duration: 0.3s;
+}
+
+.Habits_habitDelete:hover {
+  background: #FF0000;
+  transition-duration: 0.3s;
+}
+
+.Habits_habitText {
+  padding: 5px;
+  text-align: center;
+}
+
+.Habits_habitProgress {
+  background-color: yellow;
+  text-align: center;
+  padding: 5px;
+  border-radius: 0px 0px 10px 10px;
+}
+
+/****************************/
+/* Styles for new component */
+/****************************/

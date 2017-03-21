@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 
+
 class Aims extends Component {
 
   showHabits(el) {
     this.props.showHabit(el.id)
-
   }
 
   handleSubmit() {
@@ -13,40 +13,52 @@ class Aims extends Component {
       this.AimInput.value='';
     }
   }
-  loging() {
-    this.props.login()  
+
+  handleKeyPress(target) {
+    if(target.charCode==13) {
+      this.handleSubmit();
+    }
   }
+
+  loging() {
+    this.props.login()
+  }
+
   render() {
 
     return (
 
-        <div>
-          <strong>Цели</strong> (количество = {this.props.aims.length})
+        <div className='Aims_contentMain'>
 
-          <div className='addAim'>
-            <input
+          <div className='Aims_statistic'>
+            <strong>Цели</strong> (количество = {this.props.aims.length})
+          </div>
+
+          <div>
+            <input className='Aims_inputTextAim'
               type='text'
               placeholder='введите цель'
               ref={(input) => { this.AimInput = input }}
+              onKeyPress = { this.handleKeyPress.bind(this) }
             />
             <br/>
-            <button onClick={ this.handleSubmit.bind(this) }>
+            <button className='Aims_addAim'
+              onClick={ this.handleSubmit.bind(this) }>
               Добавить цель
             </button>
           </div>
 
-          <ul className='allAims'>
+          <ul className='Aims_allCreatedAims'>
             {this.props.aims.map( (el,index) =>
               <li key={index}>
-                <div className='newAim'>
+                <div className='Aims_newAim'>
 
-                  <button className='aimDelete'>
-                    [x]
-                  </button>
+                  <div className='Aims_aimAction'>
+                    <button className='Aims_aimEdit'>&#9998;</button>
+                    <button className='Aims_aimDelete'>&#215;</button>
+                  </div>
 
-                  <br/>
-
-                  <div className='aimText'
+                  <div className='Aims_aimText'
                     onClick={this.showHabits.bind(this, el)}>
                     {el.aim}
                   </div>
