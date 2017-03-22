@@ -7,45 +7,12 @@ class Aims extends Component {
     this.props.showHabit(el.id)
   }
 
-  handleSubmit() {
-    if (this.AimInput.value!=='') {
-      this.props.onAddAim(this.AimInput.value);
-      this.AimInput.value='';
-    }
-  }
-
-  handleKeyPress(target) {
-    if(target.charCode==13) {
-      this.handleSubmit();
-    }
-  }
-
-  loging() {
-    this.props.login()
-  }
-
   render() {
 
     return (
-
         <div className='Aims_contentMain'>
-
           <div className='Aims_statistic'>
-            <strong>Цели</strong> (количество = {this.props.aims.length})
-          </div>
-
-          <div>
-            <input className='Aims_inputTextAim'
-              type='text'
-              placeholder='введите цель'
-              ref={(input) => { this.AimInput = input }}
-              onKeyPress = { this.handleKeyPress.bind(this) }
-            />
-            <br/>
-            <button className='Aims_addAim'
-              onClick={ this.handleSubmit.bind(this) }>
-              Добавить цель
-            </button>
+            <strong>Цели: {this.props.aims.length}</strong>
           </div>
 
           <ul className='Aims_allCreatedAims'>

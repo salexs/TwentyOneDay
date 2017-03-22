@@ -3,12 +3,15 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
 import * as habbitActions from '../actions/HabbitActions'
+import * as aimActions from '../actions/AimActions'
 import * as userActions from '../actions/UserActions'
 import * as userPhotoActions from '../actions/UserPhotoActions'
 
 import Aims from '../components/Aims'
 import Habits from '../components/Habits'
 import Header from '../components/Header'
+import AimCreat from '../components/AimCreate'
+import HabitCreate from '../components/HabitCreate'
 
 
 class App extends Component {
@@ -28,19 +31,27 @@ class App extends Component {
           />
         </div>
 
+        <div className='AimCreat'>
+          <AimCreat
+            onAddAim={this.props.aimActions.onAddAim}
+          />
+        </div>
+
         <div className='App_contentAim'>
           <Aims
             aims={this.props.aims}
             showHabit={this.props.habbitActions.showHabit}
-            onAddAim={this.props.habbitActions.onAddAim}
           />
         </div>
-
+        <div className='HabitCreate'>
+          <HabitCreate
+            clickedHabit={this.props.clickedHabit}
+            onAddHabit={this.props.habbitActions.onAddHabit}
+          />
+        </div>
         <div className='App_contentHabit'>
           <Habits
             habits={this.props.habits}
-            clickedHabit={this.props.clickedHabit}
-            onAddHabit={this.props.habbitActions.onAddHabit}
           />
         </div>
 
@@ -66,6 +77,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
     habbitActions: bindActionCreators(habbitActions, dispatch),
+    aimActions: bindActionCreators(aimActions, dispatch),
     userActions: bindActionCreators(userActions, dispatch),
     photoActions: bindActionCreators(userPhotoActions, dispatch)
   }

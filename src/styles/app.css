@@ -25,12 +25,15 @@ div.App_contentMain div {
 /************************************/
 /* Styles for component 'Header.js' */
 /************************************/
+body {
+  background-color: #e5e5e5;
+}
 
 .Header_contentMain {
-  background-color: #FFFFFF;
+  background-color: white;
   padding: 10px;
   overflow: hidden;
-  height: 100px;
+  height: 50px;
 }
 
 .Header_welcomeText {
@@ -61,37 +64,50 @@ div.App_contentMain div {
 .Header_TwentyOneDays {
   font-size: 50px;
   text-transform: uppercase;
-}
-
-.Header_Slogan {
-  font-size: 30px;
-  color: #B4B4B4;
-}
-
-.Header_userProfile {
-  display: none;
-}
-
-.Header_userMainPhoto {
-
-}
-
-.Header_userFullName {
-
+  font-family:Lobster, cursive; Font-size:30px;
 }
 
 .Header_Registration {
   display: inline-block;
+  float: right;
+}
+.Header_Registration_complited {
+  display: none;
+}
+
+.Header_userProfile {
+    float: right;
+}
+.Header_userFullName {
+    float: right;
+    margin-left: 5px;
+    margin-right: 5px;
+    padding-top: 15px;
+    font-style: italic;
+}
+
+.Header_userMainPhoto {
+    margin-left: 5px;
+    float: right;
+}
+
+#avatar {
+  border:0;
+  border-radius: 45px;
+  width: 50px;
+  height: 50px;
 }
 
 .Header_buttonLogIn {
-  background-color: red;
+  float: right;
+  background-color: #9d93e4;
   margin: 10px 0;
   padding: 5px 10px;
-  border-radius: 0;
+  border-radius: 4px;
   font-size: 15px;
   border: 0;
   margin-left: 30px;
+  color: white;
 }
 
 /**********************************/
@@ -99,11 +115,14 @@ div.App_contentMain div {
 /**********************************/
 
 .Aims_contentMain {
-  background: #83c8ff;
+  background: #fefefe;
   padding: 10px;
   text-align: center;
-  border-radius: 10px;
-  border: 3px #0066FF solid;
+  margin-right: 7%;
+  width: 55%;
+  margin-top: 10px !important;
+  float:right;
+  height: 200px;
 }
 
 .Aims_statistic {
@@ -111,28 +130,30 @@ div.App_contentMain div {
   margin: 20px 0;
 }
 
+.AimCreat {
+    width: 25%;
+    float:left;
+    margin-top: 10px !important;
+    margin-left: 10%;
+    height: 150px;
+    background: white;
+
+}
+
 .Aims_inputTextAim {
-  width: 300px;
+  width: 200px;
   border-radius: 0;
-  border: 0;
   padding: 5px 20px;
   text-align: center;
 }
 
 .Aims_addAim {
-  margin: 10px 0;
-  padding: 5px 10px;
-  background-color: #009900;
-  border-radius: 0;
+  margin-top: 20px;
+  background-color: #9FD29F;
   font-size: 15px;
-  border: 0;
-}
+  border: 1px solid black;
+  font-size: 15px;
 
-.Aims_addAim:hover {
-  background-color: #00ff00;
-  padding: 5px 30px;
-  font-weight:bold;
-  transition-duration: 0.5s;
 }
 
 .Aims_allCreatedAims {
@@ -145,7 +166,7 @@ ul.Aims_allCreatedAims li {
 
 .Aims_newAim {
   display: inline-block;
-  background-color: #FFE680;
+  background-color: #62B0C9;
   margin: 3px;
   font-size: 20px;
   border-radius: 0px 0px 10px 10px;
@@ -155,7 +176,7 @@ ul.Aims_allCreatedAims li {
   background-color: blue;
 }
 
-.Aims_newAim:hover .Aims_aimAction {
+.Aims_newAim .Aims_aimAction {
   display: block;
 }
 
@@ -173,6 +194,8 @@ ul.Aims_allCreatedAims li {
   font-size: 15px;
   margin: 0 5px;
 }
+
+
 
 .Aims_aimEdit:hover {
   background: #FF6600;
@@ -195,23 +218,33 @@ ul.Aims_allCreatedAims li {
 /************************************/
 
 .Habits_contentMain {
-  background: #83c8ff;
-  margin: 0 auto;
+  margin-right:7%;
+  background: #fefefe;
+  margin-top: 10px !important;
   padding: 10px;
-  width: 50%;
+  width: 55%;
   text-align: center;
-  border-radius: 0px 0px 10px 10px;
-  border: 3px #0066FF solid;
-  border-top: 0px;
+  float: right;
+  height: 300px;
 }
 
 .Habits_statistic {
   text-align: center;
-  margin: 20px 0;
+  margin: 20px 0 ;
+}
+
+.HabitCreate {
+    width: 25%;
+    float:left;
+    margin-top: 10px !important;
+    margin-left: 10%;
+    height: 200px;
+    background: white;
+
 }
 
 .Habits_inputTextHabit {
-  width: 300px;
+  width: 200px;
   border-radius: 0;
   border: 0;
   padding: 5px 20px;
@@ -219,15 +252,14 @@ ul.Aims_allCreatedAims li {
 }
 
 .Habits_addHabit {
-  background-color: #009900;
-  margin: 10px 0;
-  padding: 5px 10px;
-  border-radius: 0;
+  margin-top: 20px;
+  background-color: #9FD29F;
   font-size: 15px;
-  border: 0;
+  border: 1px solid black;
+  font-size: 15px;
 }
 
-.Habits_addHabit:hover {
+.Habits_addHabit: {
   background-color: #00ff00;
   padding: 5px 30px;
   font-weight: bold;
@@ -241,11 +273,16 @@ ul.Aims_allCreatedAims li {
 
 .Habits_newHabit {
   display: inline-block;
-  background-color: #FFE680;
+  background-color: #DADADA;
   margin-bottom: 10px;
   font-size: 20px;
   text-align: left;
   border-radius: 0px 0px 10px 10px;
+}
+
+.Load {
+    width: 70%;
+    background-color: #82bae3;
 }
 
 .Habits_newHabit {
@@ -254,7 +291,7 @@ ul.Aims_allCreatedAims li {
 
 .Habits_habitAction {
   text-align: right;
-  background-color: #D0D0D0;
+  background-color: #54C8B7;
   padding: 0px 5px 5px 0px
 }
 
@@ -277,12 +314,11 @@ ul.Aims_allCreatedAims li {
 }
 
 .Habits_habitText {
-  padding: 5px;
-  text-align: center;
+
 }
 
 .Habits_habitProgress {
-  background-color: yellow;
+  background-color: #00AE95;
   text-align: center;
   padding: 5px;
   border-radius: 0px 0px 10px 10px;

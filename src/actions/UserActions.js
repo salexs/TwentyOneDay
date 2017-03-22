@@ -10,7 +10,7 @@ export function handleLogin() {
       console.log(r.session)
       if (r.session) {
         let user = r.session.user;
-        var payload = user
+        var payload = {user:user,loginStyle:'_complited'}
         console.log(payload)
         dispatch({
           type: 'LOGIN_SUCCES',

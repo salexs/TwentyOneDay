@@ -3,18 +3,6 @@ import React, { Component } from 'react';
 
 class Habits extends Component {
 
-  handleSubmit() {
-    if (this.HabitInput.value!=='' && this.props.clickedHabit!=='') {
-      this.props.onAddHabit( this.props.clickedHabit, this.HabitInput.value );
-      this.HabitInput.value='';
-    }
-  }
-
-  handleKeyPress(target) {
-    if(target.charCode==13){
-      this.handleSubmit();
-    }
-  }
 
   render() {
 
@@ -23,21 +11,7 @@ class Habits extends Component {
       <div className='Habits_contentMain'>
 
         <div className='Habits_statistic'>
-          <strong>Привычки</strong> (количество = {this.props.habits.length})
-        </div>
-
-        <div>
-          <input className='Habits_inputTextHabit'
-            type='text'
-            placeholder='введите привычку'
-            ref={(input) => { this.HabitInput = input }}
-            onKeyPress = { this.handleKeyPress.bind(this) }
-          />
-          <br/>
-          <button className='Habits_addHabit'
-            onClick={ this.handleSubmit.bind(this) }>
-            Добавить привычку
-          </button>
+          <strong>Привычки: {this.props.habits.length}</strong>
         </div>
 
         <ul className='Habits_allCreatedHabits'>
@@ -51,11 +25,9 @@ class Habits extends Component {
                 </div>
 
                 <div className='Habits_habitText'>
-                  {el.text}
-                </div>
-
-                <div className='Habits_habitProgress'>
-                  Progress
+                  <div className='Load'>
+                    {el.text}
+                  </div>
                 </div>
 
               </div>
