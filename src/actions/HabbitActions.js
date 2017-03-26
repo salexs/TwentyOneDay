@@ -19,3 +19,9 @@ export function showHabit (id) {
           payload: payload
       }
 }
+
+export function openModal() {
+  return {
+      type: 'OPEN_HABBIT_CREATE'
+  }
+}

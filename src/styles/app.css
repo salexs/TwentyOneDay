@@ -130,21 +130,29 @@ body {
   margin: 20px 0;
 }
 
-.AimCreat {
-    width: 25%;
-    float:left;
-    margin-top: 10px !important;
-    margin-left: 10%;
+.AimCreate {
+    width: 50%;
     height: 150px;
     background: white;
+    margin: 0 auto;
+    margin-top:10px;
 
 }
 
+.AimCreate p {
+  font-style: italic;
+  font-size: 20px;
+}
 .Aims_inputTextAim {
-  width: 200px;
+  width: 400px;
+  height: 20px;
   border-radius: 0;
   padding: 5px 20px;
   text-align: center;
+  background: white;
+  margin-top: 50px;
+
+
 }
 
 .Aims_addAim {
@@ -153,6 +161,8 @@ body {
   font-size: 15px;
   border: 1px solid black;
   font-size: 15px;
+  float:right;
+  margin-top:200px;
 
 }
 
@@ -213,6 +223,18 @@ ul.Aims_allCreatedAims li {
   width: auto;
 }
 
+body .modal {
+  position: fixed;
+  top: 100px;
+  left: 250px;
+  right: 250px;
+  bottom: 100px;
+  border: 1px solid #ccc;
+  overflow: auto;
+  outline:none;
+  background: white;
+}
+
 /************************************/
 /* Styles for component 'Habits.js' */
 /************************************/
@@ -235,14 +257,21 @@ ul.Aims_allCreatedAims li {
 
 .HabitCreate {
     width: 25%;
-    float:left;
-    margin-top: 10px !important;
-    margin-left: 10%;
+    margin: 0 auto;
     height: 200px;
+    margin-top: 150px;
     background: white;
 
 }
-
+.showModal {
+  background-color: #54c354;
+  border:0;
+  font-size: 15px;
+  font-weight: bold;
+  padding: 5px 10px 5px 10px;
+  border-radius:50%;
+  margin-left: 10px;
+}
 .Habits_inputTextHabit {
   width: 200px;
   border-radius: 0;

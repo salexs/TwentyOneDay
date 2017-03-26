@@ -10,8 +10,7 @@ import * as userPhotoActions from '../actions/UserPhotoActions'
 import Aims from '../components/Aims'
 import Habits from '../components/Habits'
 import Header from '../components/Header'
-import AimCreat from '../components/AimCreate'
-import HabitCreate from '../components/HabitCreate'
+import Modal from './Modal'
 
 
 class App extends Component {
@@ -30,28 +29,22 @@ class App extends Component {
             loadAvatar = {this.props.photoActions.loadAvatar}
           />
         </div>
-
-        <div className='AimCreat'>
-          <AimCreat
-            onAddAim={this.props.aimActions.onAddAim}
-          />
-        </div>
-
+        <Modal
+            status={this.props.modalAim}
+            openModal= {this.props.aimActions.openModal}
+            returnStatus = {this.props.aimActions.returnStatus}
+         />
         <div className='App_contentAim'>
           <Aims
             aims={this.props.aims}
             showHabit={this.props.habbitActions.showHabit}
-          />
-        </div>
-        <div className='HabitCreate'>
-          <HabitCreate
-            clickedHabit={this.props.clickedHabit}
-            onAddHabit={this.props.habbitActions.onAddHabit}
+            openModal={this.props.aimActions.openModal}
           />
         </div>
         <div className='App_contentHabit'>
           <Habits
             habits={this.props.habits}
+            openModal={this.props.habbitActions.openModal}
           />
         </div>
 
@@ -70,7 +63,8 @@ function mapStateToProps(state) {
     }),
     clickedHabit: state.showHabit,
     user: state.user,
-    avatar: state.avatar
+    avatar: state.avatar,
+    modalAim: state.modalAim
   }
 }
 

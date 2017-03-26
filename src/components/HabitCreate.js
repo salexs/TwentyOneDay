@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import * as habitActions from '../actions/HabbitActions';
 
 class HabitCreate extends Component {
-  
+
   handleSubmit() {
-    if (this.HabitInput.value!=='' && this.props.clickedHabit!=='') {
-      this.props.onAddHabit( this.props.clickedHabit, this.HabitInput.value );
+    if (this.HabitInput.value!=='') {
+      this.props.habitActions.onAddHabit( this.props.clickedHabit, this.HabitInput.value );
       this.HabitInput.value='';
     }
   }
@@ -17,7 +20,7 @@ class HabitCreate extends Component {
 
   render() {
     return (
-      <div>
+      <div className='HabitCreate'>
         <input className='Habits_inputTextHabit'
           type='text'
           placeholder='введите привычку'
@@ -35,4 +38,15 @@ class HabitCreate extends Component {
   }
 }
 
-export default HabitCreate;
+function mapStateToProps(state) {
+  return {
+    clickedHabit: state.showHabit
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    habitActions: bindActionCreators(habitActions, dispatch)
+  }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(HabitCreate)

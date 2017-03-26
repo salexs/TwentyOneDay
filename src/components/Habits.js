@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
 
 
+
 class Habits extends Component {
 
+  showModal() {
+      this.props.openModal();
+  }
 
   render() {
 
@@ -12,6 +16,7 @@ class Habits extends Component {
 
         <div className='Habits_statistic'>
           <strong>Привычки: {this.props.habits.length}</strong>
+
         </div>
 
         <ul className='Habits_allCreatedHabits'>
@@ -34,7 +39,7 @@ class Habits extends Component {
             </li>
           )}
         </ul>
-
+        <span className='showModal' onClick = {this.showModal.bind(this)}>+</span>
       </div>
     );
   }

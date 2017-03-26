@@ -7,14 +7,18 @@ class Aims extends Component {
     this.props.showHabit(el.id)
   }
 
+
+  showModal() {
+    this.props.openModal()
+  }
   render() {
 
     return (
         <div className='Aims_contentMain'>
           <div className='Aims_statistic'>
             <strong>Цели: {this.props.aims.length}</strong>
-          </div>
 
+          </div>
           <ul className='Aims_allCreatedAims'>
             {this.props.aims.map( (el,index) =>
               <li key={index}>
@@ -29,11 +33,12 @@ class Aims extends Component {
                     onClick={this.showHabits.bind(this, el)}>
                     {el.aim}
                   </div>
-
                 </div>
               </li>
             )}
+            <span className='showModal' onClick = {this.showModal.bind(this)}>+</span>
           </ul>
+
 
         </div>
 

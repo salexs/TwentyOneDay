@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import * as aimActions from '../actions/AimActions';
 
-class AimCreat extends Component {
+class AimCreate extends Component {
 
   handleSubmit() {
     if (this.AimInput.value!=='') {
-      this.props.onAddAim(this.AimInput.value);
+      this.props.aimActions.onAddAim(this.AimInput.value);
       this.AimInput.value='';
     }
   }
@@ -17,7 +20,8 @@ class AimCreat extends Component {
 
   render() {
     return (
-      <div>
+      <div className='AimCreate'>
+      <p>Добавьте новую цель</p>
         <input className='Aims_inputTextAim'
           type='text'
           placeholder='введите цель'
@@ -29,10 +33,22 @@ class AimCreat extends Component {
           onClick={ this.handleSubmit.bind(this) }>
           Добавить цель
         </button>
-      </div>
 
+      </div>
     )
   }
 }
 
-export default AimCreat;
+
+function mapStateToProps(state) {
+  return {
+    aims: state.aims
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    aimActions: bindActionCreators(aimActions, dispatch)
+  }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(AimCreate)
