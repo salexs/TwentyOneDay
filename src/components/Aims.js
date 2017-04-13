@@ -1,49 +1,54 @@
 import React, { Component } from 'react';
-
+import AimCreate from './AimCreate'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux';
+import * as aimActions from '../actions/AimActions';
+import * as userActions from '../actions/UserActions'
+import Aim from './Aim'
+import Header from './Header'
 
 class Aims extends Component {
 
-  showHabits(el) {
-    this.props.showHabit(el.id)
-  }
-
-
-  showModal() {
-    this.props.openModal()
-  }
   render() {
 
     return (
-        <div className='Aims_contentMain'>
-          <div className='Aims_statistic'>
-            <strong>Цели: {this.props.aims.length}</strong>
-
+        <div>
+          <div>
+            <Header
+              login={this.props.userActions.handleLogin}
+              user={this.props.user}
+            />
           </div>
-          <ul className='Aims_allCreatedAims'>
-            {this.props.aims.map( (el,index) =>
-              <li key={index}>
-                <div className='Aims_newAim'>
-
-                  <div className='Aims_aimAction'>
-                    <button className='Aims_aimEdit'>&#9998;</button>
-                    <button className='Aims_aimDelete'>&#215;</button>
-                  </div>
-
-                  <div className='Aims_aimText'
-                    onClick={this.showHabits.bind(this, el)}>
-                    {el.aim}
-                  </div>
-                </div>
-              </li>
-            )}
-            <span className='showModal' onClick = {this.showModal.bind(this)}>+</span>
-          </ul>
-
-
+          <div className='Aims'>
+              <Aim
+                aims={this.props.aims}
+                aimActions={this.props.aimActions}
+              />
+              <AimCreate />
+          </div>
         </div>
-
     );
   }
 }
 
-export default Aims;
+function mapStateToProps(state) {
+  return {
+    user: state.user,
+    aims: () => {
+          let aims = [];
+          for (let key in state.aims) {
+            aims.push(state.aims[key])
+          }
+          return aims;
+    }
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    aimActions: bindActionCreators(aimActions, dispatch),
+    userActions: bindActionCreators(userActions, dispatch)
+  }
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(Aims)

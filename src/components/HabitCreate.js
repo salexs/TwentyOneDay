@@ -6,14 +6,14 @@ import * as habitActions from '../actions/HabbitActions';
 class HabitCreate extends Component {
 
   handleSubmit() {
-    if (this.HabitInput.value!=='') {
-      this.props.habitActions.onAddHabit( this.props.clickedHabit, this.HabitInput.value );
-      this.HabitInput.value='';
+    if (this.AimInput.value!=='') {
+      this.props.habitActions.onAddHabit(this.AimInput.value,this.props.aimID);
+      this.AimInput.value='';
     }
   }
 
   handleKeyPress(target) {
-    if(target.charCode==13){
+    if(target.charCode==13) {
       this.handleSubmit();
     }
   }
@@ -21,26 +21,26 @@ class HabitCreate extends Component {
   render() {
     return (
       <div className='HabitCreate'>
-        <input className='Habits_inputTextHabit'
+        <input
           type='text'
-          placeholder='введите привычку'
-          ref={(input) => { this.HabitInput = input }}
+          placeholder='Введите цель'
+          ref={(input) => { this.AimInput = input }}
           onKeyPress = { this.handleKeyPress.bind(this) }
         />
-        <br/>
-        <button className='Habits_addHabit'
+        <button
           onClick={ this.handleSubmit.bind(this) }>
-          Добавить привычку
+          Добавить
         </button>
-      </div>
 
+      </div>
     )
   }
 }
 
+
 function mapStateToProps(state) {
   return {
-    clickedHabit: state.showHabit
+    aims: state.aims
   }
 }
 

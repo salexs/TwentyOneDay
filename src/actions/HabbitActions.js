@@ -1,22 +1,11 @@
 
-export function onAddHabit (id,habit) {
-      const payload = {
-        parentId:id,
-        id: Date.now().toString(),
-        text: habit
-      }
+export function onAddHabit (habit,parentId) {
+
       return {
-          type: 'ADD_HABIT',
-          payload: payload
-      }
-}
-export function showHabit (id) {
-      const payload = {
-        parentId:id
-      }
-      return {
-          type: 'SHOW_HABIT',
-          payload: payload
+          type: 'ADD_HABBIT',
+          id: Date.now().toString(),
+          text: habit,
+          aimID:parentId
       }
 }
 

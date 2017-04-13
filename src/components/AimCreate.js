@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as aimActions from '../actions/AimActions';
+import Priming from './Priming'
 
 class AimCreate extends Component {
 
@@ -18,22 +19,29 @@ class AimCreate extends Component {
     }
   }
 
+  handlePriming(event) {
+    this.props.aimActions.showPriming(event);
+  }
+
   render() {
     return (
-      <div className='AimCreate'>
-      <p>Добавьте новую цель</p>
-        <input className='Aims_inputTextAim'
+      <div>
+        <input
           type='text'
-          placeholder='введите цель'
+          placeholder='Введите цель'
           ref={(input) => { this.AimInput = input }}
           onKeyPress = { this.handleKeyPress.bind(this) }
+          onChange = {this.handlePriming.bind(this)}
+          value={this.props.priming.choise}
         />
-        <br/>
-        <button className='Aims_addAim'
+        <button
           onClick={ this.handleSubmit.bind(this) }>
           Добавить цель
         </button>
-
+        <Priming
+          priming={this.props.priming}
+          choiseWord={this.props.aimActions.choiseWord}
+        />
       </div>
     )
   }
@@ -42,7 +50,7 @@ class AimCreate extends Component {
 
 function mapStateToProps(state) {
   return {
-    aims: state.aims
+    priming:state.priming
   }
 }
 

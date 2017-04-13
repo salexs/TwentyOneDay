@@ -5,31 +5,29 @@ class Header extends Component {
 
   handleLog() {
     this.props.login();
-    this.props.loadAvatar()
   }
 
   render() {
 
     return (
 
-      <div className='Header_contentMain'>
+      <div className='Header'>
 
-        <div className='Header_welcomeText'>
-          <div className='Header_TwentyOneDays'>21 day</div>
+        <div>
+          <div className='Logo'>21 День</div>
         </div>
 
-        <div className={'Header_Registration'+this.props.user.loginStyle}>
-          <button className='Header_buttonLogIn'
+        <div>
+          <button
            onClick={this.handleLog.bind(this)}>
            sign in with VK
           </button>
         </div>
 
-        <div className='Header_userProfile'>
-          <div className='Header_userMainPhoto'>
-            <img  id='avatar' src={this.props.avatar}/>
+        <div>
+          <div>
           </div>
-          <div className='Header_userFullName'>
+          <div>
             {this.props.user.user.domain}
           </div>
         </div>

@@ -1,48 +1,37 @@
 import React, { Component } from 'react';
-
+import { connect } from 'react-redux';
+import HabitCreate from './HabitCreate';
 
 
 class Habits extends Component {
 
-  showModal() {
-      this.props.openModal();
-  }
-
   render() {
-
     return (
-
-      <div className='Habits_contentMain'>
-
-        <div className='Habits_statistic'>
-          <strong>Привычки: {this.props.habits.length}</strong>
-
-        </div>
-
-        <ul className='Habits_allCreatedHabits'>
-          {this.props.habits.map( (el,index) =>
+      <div className='Habits'>
+        <ol className='bullet'>
+          {this.props.habits.map((el,index) =>
             <li key={index}>
-              <div className='Habits_newHabit'>
-
-                <div className='Habits_habitAction'>
-                  <button className='Habits_habitEdit'>&#9998;</button>
-                  <button className='Habits_habitDelete'>&#215;</button>
-                </div>
-
-                <div className='Habits_habitText'>
-                  <div className='Load'>
-                    {el.text}
-                  </div>
-                </div>
-
+              <div className='Habit'>{el.text}</div>
+              <div className='Load'>
+                <div className='Load_Complited' style={{width:el.text+'em'}}></div>
               </div>
             </li>
           )}
-        </ul>
-        <span className='showModal' onClick = {this.showModal.bind(this)}>+</span>
+        </ol>
+        <HabitCreate aimID={this.props.aimID}/>
       </div>
     );
   }
 }
 
-export default Habits;
+function mapStateToProps(state,ownProps) {
+  return {
+    habits: state.habits.filter((habit) => {
+      if (ownProps.aimID===habit.parentId) {
+        return habit
+      } else {return ''}
+    })
+  }
+}
+
+export default connect(mapStateToProps)(Habits)

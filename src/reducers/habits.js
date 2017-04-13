@@ -1,11 +1,11 @@
 export default function habits(state=[],action) {
-  if (action.type === 'ADD_HABIT') {
+  if (action.type === 'ADD_HABBIT') {
     return [
       ...state,
       {
-        parentId: action.payload.parentId,
-        id: action.payload.id,
-        text: action.payload.text
+        text: action.text,
+        parentId:action.aimID,
+        time: action.text
       }
     ];
   } else {
